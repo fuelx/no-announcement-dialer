@@ -1,0 +1,725 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:2:1-66:12
+INJECTED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:2:1-66:12
+INJECTED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:2:1-66:12
+INJECTED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:2:1-66:12
+MERGED from [androidx.work:work-runtime-ktx:2.9.0] /home/ankit/.gradle/caches/transforms-4/ce0667bd2d657da8b7663b6d6d7f64bc/transformed/work-runtime-ktx-2.9.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:17:1-145:12
+MERGED from [androidx.compose.material3:material3:1.1.2] /home/ankit/.gradle/caches/transforms-4/b6e42f16e354a9270ed335b2a036761c/transformed/material3-1.1.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.8.2] /home/ankit/.gradle/caches/transforms-4/74fae07754a77e6cc01db919ec0576c3/transformed/activity-1.8.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity-ktx:1.8.2] /home/ankit/.gradle/caches/transforms-4/16c2b327b83c5e72773aa7747a80ce53/transformed/activity-ktx-1.8.2/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt:coil-compose:2.5.0] /home/ankit/.gradle/caches/transforms-4/2c45fff4cf4ef80158751f5dcd36d7ed/transformed/coil-compose-2.5.0/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt:coil-compose-base:2.5.0] /home/ankit/.gradle/caches/transforms-4/6b4960d74b3a29f33a26fb6f1ae317f6/transformed/coil-compose-base-2.5.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/b5d744e1afb3d03013c33a13d971deb2/transformed/material-ripple-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-core-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/df60a5d450e22404aab508f87e738285/transformed/material-icons-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-extended-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/02b004e1befdf88af9422353b401f254/transformed/material-icons-extended-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/5d8a1f2d8693abf23966069f54fe5db8/transformed/material-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/aa8b2b450992a2f80e8bcbc6e1092b7a/transformed/animation-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/8888cadb8581cba9ae309685d0c7add3/transformed/animation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/660430d5c201c3f99077eb7910b9ef01/transformed/foundation-layout-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/0acf33a6552bfac087375285d6c29911/transformed/foundation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/47cdd7dde02d221480ee3ade0e45eb9f/transformed/ui-tooling-data-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/01f85e2e88e3df7a73aa19576239fe3b/transformed/ui-unit-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/db20d219f9cb00b9f6b237ad2a2eb288/transformed/ui-geometry-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/5c643fa873e36e8b7b4e82904c1c5a06/transformed/ui-util-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/9d0753aec505b1200aef8617d291006d/transformed/ui-text-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/dbacbf1fb240e2b823c5662937a15234/transformed/ui-tooling-preview-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/686c42977871982b2722d70cf7d1234f/transformed/ui-graphics-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-test-manifest:1.6.0] /home/ankit/.gradle/caches/transforms-4/0a6122044c0f555ee3abe1e767eeb94c/transformed/ui-test-manifest-1.6.0/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.compose.ui:ui-tooling-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/83fffd8feaa29bac37e629af81fc4bfa/transformed/ui-tooling-release/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.activity:activity-compose:1.8.2] /home/ankit/.gradle/caches/transforms-4/a9cafa8f1948319c7bb5ec6f3da2213c/transformed/activity-compose-1.8.2/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/ankit/.gradle/caches/transforms-4/c29f6ea9ac64dc7c4665ee12c4d41980/transformed/emoji2-1.3.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/ankit/.gradle/caches/transforms-4/b5ee7915c7ca2d055a6ca32c82d2975f/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /home/ankit/.gradle/caches/transforms-4/2193590823fdcf4662919bc3e20e81ba/transformed/lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-service:2.7.0] /home/ankit/.gradle/caches/transforms-4/a227a6062bf9e71e62176db034491980/transformed/lifecycle-service-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] /home/ankit/.gradle/caches/transforms-4/95ef2f76cb54cdc431d5ea595c1ae0bf/transformed/lifecycle-livedata-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /home/ankit/.gradle/caches/transforms-4/5b1183c89131acada12c5cda4db1c972/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /home/ankit/.gradle/caches/transforms-4/e417629239a675f30d168d06faa7d628/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] /home/ankit/.gradle/caches/transforms-4/a18c4b5f821d410462fce74850446689/transformed/savedstate-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /home/ankit/.gradle/caches/transforms-4/b844dfe373636fabd6e18d4450cbffad/transformed/lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /home/ankit/.gradle/caches/transforms-4/d919a5c34e8d829511a815fe403b69be/transformed/lifecycle-viewmodel-ktx-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /home/ankit/.gradle/caches/transforms-4/892af9cf27787f429a4d2430d9da0693/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [io.coil-kt:coil:2.5.0] /home/ankit/.gradle/caches/transforms-4/06a5de8505c6abd8526d7b1b6abde944/transformed/coil-2.5.0/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt:coil-base:2.5.0] /home/ankit/.gradle/caches/transforms-4/2df47c789da0caadd351480941941ccd/transformed/coil-base-2.5.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /home/ankit/.gradle/caches/transforms-4/4d9cdbf8efdb55f07db3d9cc419fdde7/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /home/ankit/.gradle/caches/transforms-4/96579de06b2ed15b38d293c018760b72/transformed/lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0] /home/ankit/.gradle/caches/transforms-4/57c88614976344efb9aff8c57a4df325/transformed/lifecycle-viewmodel-compose-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.32.0] /home/ankit/.gradle/caches/transforms-4/c0e4e9db4250df04e10f96661b5e833e/transformed/accompanist-drawablepainter-0.32.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.compose.ui:ui-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/3064d153a258b4944148412e71a01d07/transformed/ui-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.autofill:autofill:1.0.0] /home/ankit/.gradle/caches/transforms-4/478b110c006499d98c0a8051b72426c3/transformed/autofill-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/ankit/.gradle/caches/transforms-4/c137e4a18b5becb122eb0a7ed1b7c274/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/ankit/.gradle/caches/transforms-4/d90f3fe9c77f8aaf1540f24b5e5070c0/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/ankit/.gradle/caches/transforms-4/f1f0970dfb472a2958cdb477ff4799cf/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.12.0] /home/ankit/.gradle/caches/transforms-4/809de4055960cbb15c0d7fa182bac880/transformed/core-1.12.0/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /home/ankit/.gradle/caches/transforms-4/ba62cc54e2d3605fdb598916fc3c15d1/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.core:core-ktx:1.12.0] /home/ankit/.gradle/caches/transforms-4/b5454505b604d5efed58169c48d69899/transformed/core-ktx-1.12.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.room:room-runtime:2.6.1] /home/ankit/.gradle/caches/transforms-4/12cb35fcff1f1b3a4adb7f700a0fd946/transformed/room-runtime-2.6.1/AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.room:room-ktx:2.6.1] /home/ankit/.gradle/caches/transforms-4/dc87cb6986d69a506387b576f6566ac9/transformed/room-ktx-2.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite-framework:2.4.0] /home/ankit/.gradle/caches/transforms-4/0bccf689074d9a8797e337a60e7df212/transformed/sqlite-framework-2.4.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite:2.4.0] /home/ankit/.gradle/caches/transforms-4/d8d04b7be9f06b782cb81a5a18f7302f/transformed/sqlite-2.4.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /home/ankit/.gradle/caches/transforms-4/81cee6c7abe4d5d89aaa5dbb6f4903b0/transformed/annotation-experimental-1.3.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/d0fc325b3c1158ed43e6785d4442ef1c/transformed/runtime-saveable-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/8259c15a4734b83c3ff4078e81e91cd8/transformed/runtime-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/ankit/.gradle/caches/transforms-4/1ec4137dfdedc56740ab4fbf42d018b4/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [dev.rikka.shizuku:provider:13.1.5] /home/ankit/.gradle/caches/transforms-4/509b780a1c2157535193ee336c1ded20/transformed/provider-13.1.5/AndroidManifest.xml:2:1-16:12
+MERGED from [dev.rikka.shizuku:api:13.1.5] /home/ankit/.gradle/caches/transforms-4/66aba77909f022f5dac82a662bd4557e/transformed/api-13.1.5/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/ankit/.gradle/caches/transforms-4/985ed230662e1d82cd100d468443017e/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [dev.rikka.shizuku:shared:13.1.5] /home/ankit/.gradle/caches/transforms-4/c52d4c553c38285f36cebd141286052a/transformed/shared-13.1.5/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/ankit/.gradle/caches/transforms-4/84c9527f85fa05182db562d7b3743fb9/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/ankit/.gradle/caches/transforms-4/bac0f0a9efe68312a3549954938cf43c/transformed/startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] /home/ankit/.gradle/caches/transforms-4/95a7da7209304abf3864d5b51d5f7f1d/transformed/tracing-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /home/ankit/.gradle/caches/transforms-4/63789389858532e790befb200fcdec1e/transformed/exifinterface-1.3.6/AndroidManifest.xml:17:1-24:12
+MERGED from [dev.rikka.shizuku:aidl:13.1.5] /home/ankit/.gradle/caches/transforms-4/5e146bd21a79c1b6f71f881725af1259/transformed/aidl-13.1.5/AndroidManifest.xml:2:1-7:12
+	package
+		INJECTED from /home/ankit/dialler/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/ankit/dialler/app/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from /home/ankit/dialler/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:2:11-69
+uses-feature#android.hardware.telephony
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:5:5-7:35
+	android:required
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:7:9-32
+	android:name
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:6:9-50
+uses-permission#android.permission.READ_CONTACTS
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:9:5-72
+	android:name
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:9:22-69
+uses-permission#android.permission.WRITE_CONTACTS
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:10:5-73
+	android:name
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:10:22-70
+uses-permission#android.permission.READ_CALL_LOG
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:11:5-72
+	android:name
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:11:22-69
+uses-permission#android.permission.WRITE_CALL_LOG
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:12:5-73
+	android:name
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:12:22-70
+uses-permission#android.permission.CALL_PHONE
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:13:5-69
+	android:name
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:13:22-66
+uses-permission#android.permission.MANAGE_OWN_CALLS
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:14:5-75
+	android:name
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:14:22-72
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:15:5-75
+	android:name
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:15:22-72
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:16:5-71
+	android:name
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:16:22-68
+uses-permission#android.permission.CAPTURE_AUDIO_OUTPUT
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:18:5-19:47
+	tools:ignore
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:19:9-44
+	android:name
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:18:22-76
+application
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:21:5-64:19
+INJECTED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:21:5-64:19
+MERGED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:28:5-143:19
+MERGED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:28:5-143:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.6.0] /home/ankit/.gradle/caches/transforms-4/0a6122044c0f555ee3abe1e767eeb94c/transformed/ui-test-manifest-1.6.0/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.6.0] /home/ankit/.gradle/caches/transforms-4/0a6122044c0f555ee3abe1e767eeb94c/transformed/ui-test-manifest-1.6.0/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/83fffd8feaa29bac37e629af81fc4bfa/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/83fffd8feaa29bac37e629af81fc4bfa/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/ankit/.gradle/caches/transforms-4/c29f6ea9ac64dc7c4665ee12c4d41980/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/ankit/.gradle/caches/transforms-4/c29f6ea9ac64dc7c4665ee12c4d41980/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/ankit/.gradle/caches/transforms-4/b5ee7915c7ca2d055a6ca32c82d2975f/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/ankit/.gradle/caches/transforms-4/b5ee7915c7ca2d055a6ca32c82d2975f/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.12.0] /home/ankit/.gradle/caches/transforms-4/809de4055960cbb15c0d7fa182bac880/transformed/core-1.12.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.12.0] /home/ankit/.gradle/caches/transforms-4/809de4055960cbb15c0d7fa182bac880/transformed/core-1.12.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.room:room-runtime:2.6.1] /home/ankit/.gradle/caches/transforms-4/12cb35fcff1f1b3a4adb7f700a0fd946/transformed/room-runtime-2.6.1/AndroidManifest.xml:23:5-29:19
+MERGED from [androidx.room:room-runtime:2.6.1] /home/ankit/.gradle/caches/transforms-4/12cb35fcff1f1b3a4adb7f700a0fd946/transformed/room-runtime-2.6.1/AndroidManifest.xml:23:5-29:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/ankit/.gradle/caches/transforms-4/1ec4137dfdedc56740ab4fbf42d018b4/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/ankit/.gradle/caches/transforms-4/1ec4137dfdedc56740ab4fbf42d018b4/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [dev.rikka.shizuku:provider:13.1.5] /home/ankit/.gradle/caches/transforms-4/509b780a1c2157535193ee336c1ded20/transformed/provider-13.1.5/AndroidManifest.xml:10:5-14:19
+MERGED from [dev.rikka.shizuku:provider:13.1.5] /home/ankit/.gradle/caches/transforms-4/509b780a1c2157535193ee336c1ded20/transformed/provider-13.1.5/AndroidManifest.xml:10:5-14:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/ankit/.gradle/caches/transforms-4/bac0f0a9efe68312a3549954938cf43c/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/ankit/.gradle/caches/transforms-4/bac0f0a9efe68312a3549954938cf43c/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+	android:extractNativeLibs
+		INJECTED from /home/ankit/dialler/app/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.12.0] /home/ankit/.gradle/caches/transforms-4/809de4055960cbb15c0d7fa182bac880/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:26:9-35
+	android:label
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:25:9-41
+	tools:ignore
+		ADDED from [dev.rikka.shizuku:provider:13.1.5] /home/ankit/.gradle/caches/transforms-4/509b780a1c2157535193ee336c1ded20/transformed/provider-13.1.5/AndroidManifest.xml:10:18-69
+	android:roundIcon
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:24:9-54
+	tools:targetApi
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:28:9-29
+	android:icon
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:23:9-43
+	android:allowBackup
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:22:9-36
+	android:theme
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:27:9-72
+activity#com.personal.caller.MainActivity
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:30:9-47:20
+	android:exported
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:32:13-36
+	android:theme
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:33:13-76
+	android:name
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:31:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:34:13-37:29
+action#android.intent.action.MAIN
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:35:17-69
+	android:name
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:35:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:36:17-77
+	android:name
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:36:27-74
+intent-filter#action:name:android.intent.action.DIAL+category:name:android.intent.category.DEFAULT+data:scheme:tel
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:38:13-42:29
+action#android.intent.action.DIAL
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:39:17-69
+	android:name
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:39:25-66
+category#android.intent.category.DEFAULT
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:40:17-76
+	android:name
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:40:27-73
+data
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:41:17-46
+	android:scheme
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:41:23-43
+intent-filter#action:name:android.intent.action.DIAL+category:name:android.intent.category.DEFAULT
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:43:13-46:29
+service#com.personal.caller.telecom.PersonalInCallService
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:49:9-62:19
+	android:exported
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:52:13-36
+	android:permission
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:51:13-72
+	android:name
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:50:13-58
+meta-data#android.telecom.IN_CALL_SERVICE_UI
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:53:13-55:40
+	android:value
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:55:17-37
+	android:name
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:54:17-66
+meta-data#android.telecom.IN_CALL_SERVICE_RINGING
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:56:13-58:40
+	android:value
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:58:17-37
+	android:name
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:57:17-71
+intent-filter#action:name:android.telecom.InCallService
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:59:13-61:29
+action#android.telecom.InCallService
+ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:60:17-72
+	android:name
+		ADDED from /home/ankit/dialler/app/src/main/AndroidManifest.xml:60:25-69
+uses-sdk
+INJECTED from /home/ankit/dialler/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/ankit/dialler/app/src/main/AndroidManifest.xml
+INJECTED from /home/ankit/dialler/app/src/main/AndroidManifest.xml
+MERGED from [androidx.work:work-runtime-ktx:2.9.0] /home/ankit/.gradle/caches/transforms-4/ce0667bd2d657da8b7663b6d6d7f64bc/transformed/work-runtime-ktx-2.9.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.work:work-runtime-ktx:2.9.0] /home/ankit/.gradle/caches/transforms-4/ce0667bd2d657da8b7663b6d6d7f64bc/transformed/work-runtime-ktx-2.9.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.compose.material3:material3:1.1.2] /home/ankit/.gradle/caches/transforms-4/b6e42f16e354a9270ed335b2a036761c/transformed/material3-1.1.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3:1.1.2] /home/ankit/.gradle/caches/transforms-4/b6e42f16e354a9270ed335b2a036761c/transformed/material3-1.1.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.2] /home/ankit/.gradle/caches/transforms-4/74fae07754a77e6cc01db919ec0576c3/transformed/activity-1.8.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.2] /home/ankit/.gradle/caches/transforms-4/74fae07754a77e6cc01db919ec0576c3/transformed/activity-1.8.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.2] /home/ankit/.gradle/caches/transforms-4/16c2b327b83c5e72773aa7747a80ce53/transformed/activity-ktx-1.8.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.2] /home/ankit/.gradle/caches/transforms-4/16c2b327b83c5e72773aa7747a80ce53/transformed/activity-ktx-1.8.2/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-compose:2.5.0] /home/ankit/.gradle/caches/transforms-4/2c45fff4cf4ef80158751f5dcd36d7ed/transformed/coil-compose-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-compose:2.5.0] /home/ankit/.gradle/caches/transforms-4/2c45fff4cf4ef80158751f5dcd36d7ed/transformed/coil-compose-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-compose-base:2.5.0] /home/ankit/.gradle/caches/transforms-4/6b4960d74b3a29f33a26fb6f1ae317f6/transformed/coil-compose-base-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-compose-base:2.5.0] /home/ankit/.gradle/caches/transforms-4/6b4960d74b3a29f33a26fb6f1ae317f6/transformed/coil-compose-base-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/b5d744e1afb3d03013c33a13d971deb2/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/b5d744e1afb3d03013c33a13d971deb2/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/df60a5d450e22404aab508f87e738285/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/df60a5d450e22404aab508f87e738285/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/02b004e1befdf88af9422353b401f254/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/02b004e1befdf88af9422353b401f254/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/5d8a1f2d8693abf23966069f54fe5db8/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/5d8a1f2d8693abf23966069f54fe5db8/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/aa8b2b450992a2f80e8bcbc6e1092b7a/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/aa8b2b450992a2f80e8bcbc6e1092b7a/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/8888cadb8581cba9ae309685d0c7add3/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/8888cadb8581cba9ae309685d0c7add3/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/660430d5c201c3f99077eb7910b9ef01/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/660430d5c201c3f99077eb7910b9ef01/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/0acf33a6552bfac087375285d6c29911/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/0acf33a6552bfac087375285d6c29911/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/47cdd7dde02d221480ee3ade0e45eb9f/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/47cdd7dde02d221480ee3ade0e45eb9f/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/01f85e2e88e3df7a73aa19576239fe3b/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/01f85e2e88e3df7a73aa19576239fe3b/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/db20d219f9cb00b9f6b237ad2a2eb288/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/db20d219f9cb00b9f6b237ad2a2eb288/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/5c643fa873e36e8b7b4e82904c1c5a06/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/5c643fa873e36e8b7b4e82904c1c5a06/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/9d0753aec505b1200aef8617d291006d/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/9d0753aec505b1200aef8617d291006d/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/dbacbf1fb240e2b823c5662937a15234/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/dbacbf1fb240e2b823c5662937a15234/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/686c42977871982b2722d70cf7d1234f/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/686c42977871982b2722d70cf7d1234f/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.6.0] /home/ankit/.gradle/caches/transforms-4/0a6122044c0f555ee3abe1e767eeb94c/transformed/ui-test-manifest-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.6.0] /home/ankit/.gradle/caches/transforms-4/0a6122044c0f555ee3abe1e767eeb94c/transformed/ui-test-manifest-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/83fffd8feaa29bac37e629af81fc4bfa/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/83fffd8feaa29bac37e629af81fc4bfa/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-compose:1.8.2] /home/ankit/.gradle/caches/transforms-4/a9cafa8f1948319c7bb5ec6f3da2213c/transformed/activity-compose-1.8.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.8.2] /home/ankit/.gradle/caches/transforms-4/a9cafa8f1948319c7bb5ec6f3da2213c/transformed/activity-compose-1.8.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/ankit/.gradle/caches/transforms-4/c29f6ea9ac64dc7c4665ee12c4d41980/transformed/emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/ankit/.gradle/caches/transforms-4/c29f6ea9ac64dc7c4665ee12c4d41980/transformed/emoji2-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/ankit/.gradle/caches/transforms-4/b5ee7915c7ca2d055a6ca32c82d2975f/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/ankit/.gradle/caches/transforms-4/b5ee7915c7ca2d055a6ca32c82d2975f/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /home/ankit/.gradle/caches/transforms-4/2193590823fdcf4662919bc3e20e81ba/transformed/lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /home/ankit/.gradle/caches/transforms-4/2193590823fdcf4662919bc3e20e81ba/transformed/lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-service:2.7.0] /home/ankit/.gradle/caches/transforms-4/a227a6062bf9e71e62176db034491980/transformed/lifecycle-service-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-service:2.7.0] /home/ankit/.gradle/caches/transforms-4/a227a6062bf9e71e62176db034491980/transformed/lifecycle-service-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] /home/ankit/.gradle/caches/transforms-4/95ef2f76cb54cdc431d5ea595c1ae0bf/transformed/lifecycle-livedata-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] /home/ankit/.gradle/caches/transforms-4/95ef2f76cb54cdc431d5ea595c1ae0bf/transformed/lifecycle-livedata-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /home/ankit/.gradle/caches/transforms-4/5b1183c89131acada12c5cda4db1c972/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /home/ankit/.gradle/caches/transforms-4/5b1183c89131acada12c5cda4db1c972/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /home/ankit/.gradle/caches/transforms-4/e417629239a675f30d168d06faa7d628/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /home/ankit/.gradle/caches/transforms-4/e417629239a675f30d168d06faa7d628/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /home/ankit/.gradle/caches/transforms-4/a18c4b5f821d410462fce74850446689/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /home/ankit/.gradle/caches/transforms-4/a18c4b5f821d410462fce74850446689/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /home/ankit/.gradle/caches/transforms-4/b844dfe373636fabd6e18d4450cbffad/transformed/lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /home/ankit/.gradle/caches/transforms-4/b844dfe373636fabd6e18d4450cbffad/transformed/lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /home/ankit/.gradle/caches/transforms-4/d919a5c34e8d829511a815fe403b69be/transformed/lifecycle-viewmodel-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /home/ankit/.gradle/caches/transforms-4/d919a5c34e8d829511a815fe403b69be/transformed/lifecycle-viewmodel-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /home/ankit/.gradle/caches/transforms-4/892af9cf27787f429a4d2430d9da0693/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /home/ankit/.gradle/caches/transforms-4/892af9cf27787f429a4d2430d9da0693/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [io.coil-kt:coil:2.5.0] /home/ankit/.gradle/caches/transforms-4/06a5de8505c6abd8526d7b1b6abde944/transformed/coil-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil:2.5.0] /home/ankit/.gradle/caches/transforms-4/06a5de8505c6abd8526d7b1b6abde944/transformed/coil-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-base:2.5.0] /home/ankit/.gradle/caches/transforms-4/2df47c789da0caadd351480941941ccd/transformed/coil-base-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-base:2.5.0] /home/ankit/.gradle/caches/transforms-4/2df47c789da0caadd351480941941ccd/transformed/coil-base-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /home/ankit/.gradle/caches/transforms-4/4d9cdbf8efdb55f07db3d9cc419fdde7/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /home/ankit/.gradle/caches/transforms-4/4d9cdbf8efdb55f07db3d9cc419fdde7/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /home/ankit/.gradle/caches/transforms-4/96579de06b2ed15b38d293c018760b72/transformed/lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /home/ankit/.gradle/caches/transforms-4/96579de06b2ed15b38d293c018760b72/transformed/lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0] /home/ankit/.gradle/caches/transforms-4/57c88614976344efb9aff8c57a4df325/transformed/lifecycle-viewmodel-compose-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0] /home/ankit/.gradle/caches/transforms-4/57c88614976344efb9aff8c57a4df325/transformed/lifecycle-viewmodel-compose-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.32.0] /home/ankit/.gradle/caches/transforms-4/c0e4e9db4250df04e10f96661b5e833e/transformed/accompanist-drawablepainter-0.32.0/AndroidManifest.xml:21:5-44
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.32.0] /home/ankit/.gradle/caches/transforms-4/c0e4e9db4250df04e10f96661b5e833e/transformed/accompanist-drawablepainter-0.32.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.compose.ui:ui-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/3064d153a258b4944148412e71a01d07/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/3064d153a258b4944148412e71a01d07/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.autofill:autofill:1.0.0] /home/ankit/.gradle/caches/transforms-4/478b110c006499d98c0a8051b72426c3/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] /home/ankit/.gradle/caches/transforms-4/478b110c006499d98c0a8051b72426c3/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/ankit/.gradle/caches/transforms-4/c137e4a18b5becb122eb0a7ed1b7c274/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/ankit/.gradle/caches/transforms-4/c137e4a18b5becb122eb0a7ed1b7c274/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/ankit/.gradle/caches/transforms-4/d90f3fe9c77f8aaf1540f24b5e5070c0/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/ankit/.gradle/caches/transforms-4/d90f3fe9c77f8aaf1540f24b5e5070c0/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/ankit/.gradle/caches/transforms-4/f1f0970dfb472a2958cdb477ff4799cf/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/ankit/.gradle/caches/transforms-4/f1f0970dfb472a2958cdb477ff4799cf/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.12.0] /home/ankit/.gradle/caches/transforms-4/809de4055960cbb15c0d7fa182bac880/transformed/core-1.12.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.12.0] /home/ankit/.gradle/caches/transforms-4/809de4055960cbb15c0d7fa182bac880/transformed/core-1.12.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /home/ankit/.gradle/caches/transforms-4/ba62cc54e2d3605fdb598916fc3c15d1/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /home/ankit/.gradle/caches/transforms-4/ba62cc54e2d3605fdb598916fc3c15d1/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.core:core-ktx:1.12.0] /home/ankit/.gradle/caches/transforms-4/b5454505b604d5efed58169c48d69899/transformed/core-ktx-1.12.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.12.0] /home/ankit/.gradle/caches/transforms-4/b5454505b604d5efed58169c48d69899/transformed/core-ktx-1.12.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.room:room-runtime:2.6.1] /home/ankit/.gradle/caches/transforms-4/12cb35fcff1f1b3a4adb7f700a0fd946/transformed/room-runtime-2.6.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.room:room-runtime:2.6.1] /home/ankit/.gradle/caches/transforms-4/12cb35fcff1f1b3a4adb7f700a0fd946/transformed/room-runtime-2.6.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.room:room-ktx:2.6.1] /home/ankit/.gradle/caches/transforms-4/dc87cb6986d69a506387b576f6566ac9/transformed/room-ktx-2.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.room:room-ktx:2.6.1] /home/ankit/.gradle/caches/transforms-4/dc87cb6986d69a506387b576f6566ac9/transformed/room-ktx-2.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-framework:2.4.0] /home/ankit/.gradle/caches/transforms-4/0bccf689074d9a8797e337a60e7df212/transformed/sqlite-framework-2.4.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-framework:2.4.0] /home/ankit/.gradle/caches/transforms-4/0bccf689074d9a8797e337a60e7df212/transformed/sqlite-framework-2.4.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite:2.4.0] /home/ankit/.gradle/caches/transforms-4/d8d04b7be9f06b782cb81a5a18f7302f/transformed/sqlite-2.4.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite:2.4.0] /home/ankit/.gradle/caches/transforms-4/d8d04b7be9f06b782cb81a5a18f7302f/transformed/sqlite-2.4.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /home/ankit/.gradle/caches/transforms-4/81cee6c7abe4d5d89aaa5dbb6f4903b0/transformed/annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /home/ankit/.gradle/caches/transforms-4/81cee6c7abe4d5d89aaa5dbb6f4903b0/transformed/annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/d0fc325b3c1158ed43e6785d4442ef1c/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/d0fc325b3c1158ed43e6785d4442ef1c/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/8259c15a4734b83c3ff4078e81e91cd8/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/8259c15a4734b83c3ff4078e81e91cd8/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/ankit/.gradle/caches/transforms-4/1ec4137dfdedc56740ab4fbf42d018b4/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/ankit/.gradle/caches/transforms-4/1ec4137dfdedc56740ab4fbf42d018b4/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [dev.rikka.shizuku:provider:13.1.5] /home/ankit/.gradle/caches/transforms-4/509b780a1c2157535193ee336c1ded20/transformed/provider-13.1.5/AndroidManifest.xml:6:5-44
+MERGED from [dev.rikka.shizuku:provider:13.1.5] /home/ankit/.gradle/caches/transforms-4/509b780a1c2157535193ee336c1ded20/transformed/provider-13.1.5/AndroidManifest.xml:6:5-44
+MERGED from [dev.rikka.shizuku:api:13.1.5] /home/ankit/.gradle/caches/transforms-4/66aba77909f022f5dac82a662bd4557e/transformed/api-13.1.5/AndroidManifest.xml:5:5-44
+MERGED from [dev.rikka.shizuku:api:13.1.5] /home/ankit/.gradle/caches/transforms-4/66aba77909f022f5dac82a662bd4557e/transformed/api-13.1.5/AndroidManifest.xml:5:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/ankit/.gradle/caches/transforms-4/985ed230662e1d82cd100d468443017e/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/ankit/.gradle/caches/transforms-4/985ed230662e1d82cd100d468443017e/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [dev.rikka.shizuku:shared:13.1.5] /home/ankit/.gradle/caches/transforms-4/c52d4c553c38285f36cebd141286052a/transformed/shared-13.1.5/AndroidManifest.xml:5:5-44
+MERGED from [dev.rikka.shizuku:shared:13.1.5] /home/ankit/.gradle/caches/transforms-4/c52d4c553c38285f36cebd141286052a/transformed/shared-13.1.5/AndroidManifest.xml:5:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/ankit/.gradle/caches/transforms-4/84c9527f85fa05182db562d7b3743fb9/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/ankit/.gradle/caches/transforms-4/84c9527f85fa05182db562d7b3743fb9/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/ankit/.gradle/caches/transforms-4/bac0f0a9efe68312a3549954938cf43c/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/ankit/.gradle/caches/transforms-4/bac0f0a9efe68312a3549954938cf43c/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] /home/ankit/.gradle/caches/transforms-4/95a7da7209304abf3864d5b51d5f7f1d/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /home/ankit/.gradle/caches/transforms-4/95a7da7209304abf3864d5b51d5f7f1d/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /home/ankit/.gradle/caches/transforms-4/63789389858532e790befb200fcdec1e/transformed/exifinterface-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /home/ankit/.gradle/caches/transforms-4/63789389858532e790befb200fcdec1e/transformed/exifinterface-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [dev.rikka.shizuku:aidl:13.1.5] /home/ankit/.gradle/caches/transforms-4/5e146bd21a79c1b6f71f881725af1259/transformed/aidl-13.1.5/AndroidManifest.xml:5:5-44
+MERGED from [dev.rikka.shizuku:aidl:13.1.5] /home/ankit/.gradle/caches/transforms-4/5e146bd21a79c1b6f71f881725af1259/transformed/aidl-13.1.5/AndroidManifest.xml:5:5-44
+	android:targetSdkVersion
+		INJECTED from /home/ankit/dialler/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/ankit/dialler/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:23:5-68
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:23:22-65
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:24:5-79
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:24:22-76
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:25:5-81
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:25:22-78
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:26:5-77
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:26:22-74
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:29:9-37:20
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/ankit/.gradle/caches/transforms-4/c29f6ea9ac64dc7c4665ee12c4d41980/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.emoji2:emoji2:1.3.0] /home/ankit/.gradle/caches/transforms-4/c29f6ea9ac64dc7c4665ee12c4d41980/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/ankit/.gradle/caches/transforms-4/b5ee7915c7ca2d055a6ca32c82d2975f/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/ankit/.gradle/caches/transforms-4/b5ee7915c7ca2d055a6ca32c82d2975f/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/ankit/.gradle/caches/transforms-4/bac0f0a9efe68312a3549954938cf43c/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/ankit/.gradle/caches/transforms-4/bac0f0a9efe68312a3549954938cf43c/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:33:13-31
+	android:authorities
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:31:13-68
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:30:13-67
+meta-data#androidx.work.WorkManagerInitializer
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:34:13-36:52
+	android:value
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:36:17-49
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:35:17-68
+service#androidx.work.impl.background.systemalarm.SystemAlarmService
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:39:9-45:35
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:42:13-72
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:43:13-37
+	tools:ignore
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:44:13-60
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:45:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:41:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:40:13-88
+service#androidx.work.impl.background.systemjob.SystemJobService
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:46:9-52:35
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:49:13-70
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:50:13-36
+	android:permission
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:51:13-69
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:52:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:48:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:47:13-84
+service#androidx.work.impl.foreground.SystemForegroundService
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:53:9-59:35
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:56:13-77
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:57:13-37
+	tools:ignore
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:58:13-60
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:59:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:55:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:54:13-81
+receiver#androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:61:9-66:35
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:64:13-35
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:65:13-37
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:66:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:63:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:62:13-88
+receiver#androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:67:9-77:20
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:70:13-36
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:71:13-37
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:72:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:69:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:68:13-106
+intent-filter#action:name:android.intent.action.ACTION_POWER_CONNECTED+action:name:android.intent.action.ACTION_POWER_DISCONNECTED
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:73:13-76:29
+action#android.intent.action.ACTION_POWER_CONNECTED
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:74:17-87
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:74:25-84
+action#android.intent.action.ACTION_POWER_DISCONNECTED
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:75:17-90
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:75:25-87
+receiver#androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:78:9-88:20
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:81:13-36
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:82:13-37
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:83:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:80:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:79:13-104
+intent-filter#action:name:android.intent.action.BATTERY_LOW+action:name:android.intent.action.BATTERY_OKAY
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:84:13-87:29
+action#android.intent.action.BATTERY_OKAY
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:85:17-77
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:85:25-74
+action#android.intent.action.BATTERY_LOW
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:86:17-76
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:86:25-73
+receiver#androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:89:9-99:20
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:92:13-36
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:93:13-37
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:94:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:91:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:90:13-104
+intent-filter#action:name:android.intent.action.DEVICE_STORAGE_LOW+action:name:android.intent.action.DEVICE_STORAGE_OK
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:95:13-98:29
+action#android.intent.action.DEVICE_STORAGE_LOW
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:96:17-83
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:96:25-80
+action#android.intent.action.DEVICE_STORAGE_OK
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:97:17-82
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:97:25-79
+receiver#androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:100:9-109:20
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:103:13-36
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:104:13-37
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:105:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:102:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:101:13-103
+intent-filter#action:name:android.net.conn.CONNECTIVITY_CHANGE
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:106:13-108:29
+action#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:107:17-79
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:107:25-76
+receiver#androidx.work.impl.background.systemalarm.RescheduleReceiver
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:110:9-121:20
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:113:13-36
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:114:13-37
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:115:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:112:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:111:13-88
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.TIMEZONE_CHANGED+action:name:android.intent.action.TIME_SET
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:116:13-120:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:117:17-79
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:117:25-76
+action#android.intent.action.TIME_SET
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:118:17-73
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:118:25-70
+action#android.intent.action.TIMEZONE_CHANGED
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:119:17-81
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:119:25-78
+receiver#androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:122:9-131:20
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:125:13-72
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:126:13-37
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:127:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:124:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:123:13-99
+intent-filter#action:name:androidx.work.impl.background.systemalarm.UpdateProxies
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:128:13-130:29
+action#androidx.work.impl.background.systemalarm.UpdateProxies
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:129:17-98
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:129:25-95
+receiver#androidx.work.impl.diagnostics.DiagnosticsReceiver
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:132:9-142:20
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:135:13-35
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:136:13-36
+	android:permission
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:137:13-57
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:138:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:134:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:133:13-78
+intent-filter#action:name:androidx.work.diagnostics.REQUEST_DIAGNOSTICS
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:139:13-141:29
+action#androidx.work.diagnostics.REQUEST_DIAGNOSTICS
+ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:140:17-88
+	android:name
+		ADDED from [androidx.work:work-runtime:2.9.0] /home/ankit/.gradle/caches/transforms-4/b74603e24f7c0db7200341644e36feb1/transformed/work-runtime-2.9.0/AndroidManifest.xml:140:25-85
+activity#androidx.activity.ComponentActivity
+ADDED from [androidx.compose.ui:ui-test-manifest:1.6.0] /home/ankit/.gradle/caches/transforms-4/0a6122044c0f555ee3abe1e767eeb94c/transformed/ui-test-manifest-1.6.0/AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.6.0] /home/ankit/.gradle/caches/transforms-4/0a6122044c0f555ee3abe1e767eeb94c/transformed/ui-test-manifest-1.6.0/AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.6.0] /home/ankit/.gradle/caches/transforms-4/0a6122044c0f555ee3abe1e767eeb94c/transformed/ui-test-manifest-1.6.0/AndroidManifest.xml:24:13-63
+activity#androidx.compose.ui.tooling.PreviewActivity
+ADDED from [androidx.compose.ui:ui-tooling-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/83fffd8feaa29bac37e629af81fc4bfa/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/83fffd8feaa29bac37e629af81fc4bfa/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.6.0] /home/ankit/.gradle/caches/transforms-4/83fffd8feaa29bac37e629af81fc4bfa/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.3.0] /home/ankit/.gradle/caches/transforms-4/c29f6ea9ac64dc7c4665ee12c4d41980/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/ankit/.gradle/caches/transforms-4/c29f6ea9ac64dc7c4665ee12c4d41980/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] /home/ankit/.gradle/caches/transforms-4/c29f6ea9ac64dc7c4665ee12c4d41980/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/ankit/.gradle/caches/transforms-4/b5ee7915c7ca2d055a6ca32c82d2975f/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/ankit/.gradle/caches/transforms-4/b5ee7915c7ca2d055a6ca32c82d2975f/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /home/ankit/.gradle/caches/transforms-4/b5ee7915c7ca2d055a6ca32c82d2975f/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] /home/ankit/.gradle/caches/transforms-4/809de4055960cbb15c0d7fa182bac880/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.12.0] /home/ankit/.gradle/caches/transforms-4/809de4055960cbb15c0d7fa182bac880/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.12.0] /home/ankit/.gradle/caches/transforms-4/809de4055960cbb15c0d7fa182bac880/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+permission#com.personal.caller.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] /home/ankit/.gradle/caches/transforms-4/809de4055960cbb15c0d7fa182bac880/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.12.0] /home/ankit/.gradle/caches/transforms-4/809de4055960cbb15c0d7fa182bac880/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.12.0] /home/ankit/.gradle/caches/transforms-4/809de4055960cbb15c0d7fa182bac880/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] /home/ankit/.gradle/caches/transforms-4/809de4055960cbb15c0d7fa182bac880/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.12.0] /home/ankit/.gradle/caches/transforms-4/809de4055960cbb15c0d7fa182bac880/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+uses-permission#com.personal.caller.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] /home/ankit/.gradle/caches/transforms-4/809de4055960cbb15c0d7fa182bac880/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.12.0] /home/ankit/.gradle/caches/transforms-4/809de4055960cbb15c0d7fa182bac880/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+service#androidx.room.MultiInstanceInvalidationService
+ADDED from [androidx.room:room-runtime:2.6.1] /home/ankit/.gradle/caches/transforms-4/12cb35fcff1f1b3a4adb7f700a0fd946/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
+	android:exported
+		ADDED from [androidx.room:room-runtime:2.6.1] /home/ankit/.gradle/caches/transforms-4/12cb35fcff1f1b3a4adb7f700a0fd946/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
+	tools:ignore
+		ADDED from [androidx.room:room-runtime:2.6.1] /home/ankit/.gradle/caches/transforms-4/12cb35fcff1f1b3a4adb7f700a0fd946/transformed/room-runtime-2.6.1/AndroidManifest.xml:28:13-60
+	android:directBootAware
+		ADDED from [androidx.room:room-runtime:2.6.1] /home/ankit/.gradle/caches/transforms-4/12cb35fcff1f1b3a4adb7f700a0fd946/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
+	android:name
+		ADDED from [androidx.room:room-runtime:2.6.1] /home/ankit/.gradle/caches/transforms-4/12cb35fcff1f1b3a4adb7f700a0fd946/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
+uses-permission#moe.shizuku.manager.permission.API_V23
+ADDED from [dev.rikka.shizuku:provider:13.1.5] /home/ankit/.gradle/caches/transforms-4/509b780a1c2157535193ee336c1ded20/transformed/provider-13.1.5/AndroidManifest.xml:8:5-78
+	android:name
+		ADDED from [dev.rikka.shizuku:provider:13.1.5] /home/ankit/.gradle/caches/transforms-4/509b780a1c2157535193ee336c1ded20/transformed/provider-13.1.5/AndroidManifest.xml:8:22-75
+meta-data#moe.shizuku.client.V3_SUPPORT
+ADDED from [dev.rikka.shizuku:provider:13.1.5] /home/ankit/.gradle/caches/transforms-4/509b780a1c2157535193ee336c1ded20/transformed/provider-13.1.5/AndroidManifest.xml:11:9-13:36
+	android:value
+		ADDED from [dev.rikka.shizuku:provider:13.1.5] /home/ankit/.gradle/caches/transforms-4/509b780a1c2157535193ee336c1ded20/transformed/provider-13.1.5/AndroidManifest.xml:13:13-33
+	android:name
+		ADDED from [dev.rikka.shizuku:provider:13.1.5] /home/ankit/.gradle/caches/transforms-4/509b780a1c2157535193ee336c1ded20/transformed/provider-13.1.5/AndroidManifest.xml:12:13-57
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] /home/ankit/.gradle/caches/transforms-4/6bc3006292df446e9b275c46ded66377/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
