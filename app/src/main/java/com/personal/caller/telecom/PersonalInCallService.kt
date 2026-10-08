@@ -8,9 +8,11 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.telecom.Call
+import android.telecom.CallAudioState
 import android.telecom.InCallService
 import android.util.Log
 import com.personal.caller.MainActivity
+import java.util.concurrent.ConcurrentHashMap
 
 /**
  * The system binds this service only after the app has been selected as the
@@ -22,10 +24,11 @@ class PersonalInCallService : InCallService() {
     private val notificationManager by lazy {
         getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
     }
-    private val notificationCallbacks = mutableMapOf<Call, Call.Callback>()
+    private val notificationCallbacks = ConcurrentHashMap<Call, Call.Callback>()
 
     override fun onCreate() {
         super.onCreate()
+        CallController.attach(this)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             notificationManager.createNotificationChannel(
                 NotificationChannel(
@@ -64,9 +67,24 @@ class PersonalInCallService : InCallService() {
         }
         val id = System.identityHashCode(call).toString()
         CallController.remove(call)
-        notificationManager.cancel(notificationId(id))
+        runCatching { notificationManager.cancel(notificationId(id)) }
         super.onCallRemoved(call)
         Log.i(TAG, "Call removed: $id")
+    }
+
+    @Suppress("DEPRECATION")
+    override fun onCallAudioStateChanged(audioState: CallAudioState) {
+        super.onCallAudioStateChanged(audioState)
+        CallController.updateAudioState(audioState)
+    }
+
+    override fun onDestroy() {
+        notificationCallbacks.forEach { (call, callback) ->
+            runCatching { call.unregisterCallback(callback) }
+        }
+        notificationCallbacks.clear()
+        CallController.detach(this)
+        super.onDestroy()
     }
 
     override fun onBringToForeground(showDialpad: Boolean) {
@@ -104,7 +122,9 @@ class PersonalInCallService : InCallService() {
             builder
                 .addAction(android.R.drawable.ic_menu_close_clear_cancel, "Decline", actionIntent(CallActionReceiver.ACTION_REJECT, id))
                 .addAction(android.R.drawable.sym_action_call, "Answer", actionIntent(CallActionReceiver.ACTION_ANSWER, id))
-                .setFullScreenIntent(contentIntent, true)
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE || notificationManager.canUseFullScreenIntent()) {
+                builder.setFullScreenIntent(contentIntent, true)
+            }
         } else {
             builder.addAction(
                 android.R.drawable.ic_menu_close_clear_cancel,
@@ -112,7 +132,8 @@ class PersonalInCallService : InCallService() {
                 actionIntent(CallActionReceiver.ACTION_DISCONNECT, id)
             )
         }
-        notificationManager.notify(notificationId(id), builder.build())
+        runCatching { notificationManager.notify(notificationId(id), builder.build()) }
+            .onFailure { Log.w(TAG, "Unable to post call notification", it) }
     }
 
     private fun actionIntent(action: String, id: String): PendingIntent {

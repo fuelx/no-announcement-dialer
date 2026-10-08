@@ -1,7 +1,6 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("com.google.devtools.ksp")
 }
 
 android {
@@ -65,15 +64,6 @@ dependencies {
     // Lifecycle components
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
 
-    // Room components
-    val roomVersion = "2.6.1"
-    implementation("androidx.room:room-runtime:$roomVersion")
-    implementation("androidx.room:room-ktx:$roomVersion")
-    ksp("androidx.room:room-compiler:$roomVersion")
-
-    // WorkManager
-    implementation("androidx.work:work-runtime-ktx:2.9.0")
-    
     // Coil for image loading
     implementation("io.coil-kt:coil-compose:2.5.0")
 

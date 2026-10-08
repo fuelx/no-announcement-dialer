@@ -3,7 +3,6 @@ package com.personal.caller.telecom
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -13,10 +12,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Call
-import androidx.compose.material.icons.filled.CallEnd
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
@@ -34,31 +29,40 @@ import androidx.compose.ui.unit.sp
 import com.personal.caller.ui.theme.PersonalCallerTheme
 
 class InCallActivity : ComponentActivity() {
+    private val selectedCallIdState = androidx.compose.runtime.mutableStateOf<String?>(null)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setShowWhenLocked(true)
         setTurnScreenOn(true)
+        selectedCallIdState.value = intent.getStringExtra(CallActionReceiver.EXTRA_CALL_ID)
 
         setContent {
             PersonalCallerTheme {
                 val calls by CallController.calls.collectAsState()
-                val requestedId = intent.getStringExtra(CallActionReceiver.EXTRA_CALL_ID)
-                val call = calls.firstOrNull { it.id == requestedId } ?: calls.firstOrNull()
+                val audio by CallController.audio.collectAsState()
+                val call = calls.firstOrNull { it.id == selectedCallIdState.value } ?: calls.firstOrNull()
 
                 LaunchedEffect(calls.isEmpty()) {
                     if (calls.isEmpty()) finish()
                 }
 
                 if (call != null) {
-                    InCallScreen(call)
+                    InCallScreen(call, audio)
                 }
             }
         }
     }
+
+    override fun onNewIntent(intent: android.content.Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        selectedCallIdState.value = intent.getStringExtra(CallActionReceiver.EXTRA_CALL_ID)
+    }
 }
 
 @androidx.compose.runtime.Composable
-private fun InCallScreen(call: CallController.CallUiState) {
+private fun InCallScreen(call: CallController.CallUiState, audio: CallController.AudioUiState) {
     val stateText = when {
         call.isRinging -> "Incoming call"
         call.isOngoing -> "In call"
@@ -74,6 +78,20 @@ private fun InCallScreen(call: CallController.CallUiState) {
         Spacer(Modifier.height(12.dp))
         Text(stateText, style = MaterialTheme.typography.titleMedium)
         Spacer(Modifier.height(56.dp))
+        if (call.isOngoing) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ) {
+                Button(onClick = CallController::toggleMute) {
+                    Text(if (audio.isMuted) "Unmute" else "Mute")
+                }
+                Button(onClick = CallController::toggleSpeaker, enabled = audio.canUseSpeaker) {
+                    Text(if (audio.isSpeakerOn) "Speaker off" else "Speaker")
+                }
+            }
+            Spacer(Modifier.height(24.dp))
+        }
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly,

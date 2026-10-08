@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.personal.caller.app-mergeReleaseResources-42:/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "/home/ankit/.gradle/caches/transforms-4/7cda43a5f1573cb4f2c47c453665fbb5/transformed/core-1.12.0/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                }
+            ]
+        }
+    ]
+}
