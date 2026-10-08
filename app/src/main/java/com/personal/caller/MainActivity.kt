@@ -23,6 +23,7 @@ import androidx.compose.material.icons.automirrored.filled.Backspace
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -32,21 +33,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.work.ExistingPeriodicWorkPolicy
-import androidx.work.PeriodicWorkRequestBuilder
-import androidx.work.WorkManager
 import coil.compose.AsyncImage
-import com.personal.caller.data.AppDatabase
 import com.personal.caller.data.Contact
 import com.personal.caller.data.ContactRepository
-import com.personal.caller.data.RecordingDao
-import com.personal.caller.data.RecordingEntity
 import com.personal.caller.ui.theme.PersonalCallerTheme
-import com.personal.caller.worker.CleanupWorker
-import rikka.shizuku.Shizuku
-import java.util.concurrent.TimeUnit
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class MainActivity : ComponentActivity() {
 
@@ -60,6 +53,8 @@ class MainActivity : ComponentActivity() {
 
     private var hasContactPermissionState = mutableStateOf(false)
     private var currentScreenState = mutableStateOf("dialpad")
+    private var dialIntentNumberState = mutableStateOf("")
+    private var pendingCallNumber: String? = null
 
     private val contactPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
@@ -70,18 +65,37 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    private val callPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        val number = pendingCallNumber
+        pendingCallNumber = null
+        if (isGranted && number != null) {
+            placeCall(number)
+        } else if (!isGranted) {
+            Toast.makeText(this, "Phone permission is required to place calls", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private val notificationPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { _ -> /* The incoming-call notification is retried when the permission is later granted. */ }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
-        scheduleCleanupWorker()
         
         hasContactPermissionState.value = ContextCompat.checkSelfPermission(
             this,
             Manifest.permission.READ_CONTACTS
         ) == PackageManager.PERMISSION_GRANTED
+        dialIntentNumberState.value = numberFromDialIntent(intent).orEmpty()
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU &&
+            ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
+        ) {
+            notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+        }
         
         val contactRepository = ContactRepository(this)
-        val recordingDao = AppDatabase.getDatabase(this).recordingDao()
         
         setContent {
             PersonalCallerTheme {
@@ -97,7 +111,6 @@ class MainActivity : ComponentActivity() {
                             val items = listOf(
                                 NavigationItem("Dialpad", Icons.Default.Dialpad, "dialpad"),
                                 NavigationItem("Contacts", Icons.Default.Person, "contacts"),
-                                NavigationItem("Recordings", Icons.Default.Mic, "recordings"),
                                 NavigationItem("Settings", Icons.Default.Settings, "main")
                             )
                             items.forEach { item ->
@@ -124,13 +137,17 @@ class MainActivity : ComponentActivity() {
                         when (currentScreen) {
                             "dialpad" -> DialpadScreen(
                                 contactRepository = contactRepository,
+                                initialNumber = dialIntentNumberState.value,
+                                hasContactPermission = hasContactPermission,
                                 onDial = { number -> placeCall(number) }
                             )
-                            "contacts" -> ContactsScreen(contactRepository)
-                            "recordings" -> RecordingsScreen(recordingDao)
+                            "contacts" -> ContactsScreen(
+                                repository = contactRepository,
+                                hasContactPermission = hasContactPermission,
+                                onDial = { number -> placeCall(number) }
+                            )
                             "main" -> MainScreen(
-                                onSetDefaultClick = { requestDefaultDialer() },
-                                onShizukuClick = { requestShizukuPermission() }
+                                onSetDefaultClick = { requestDefaultDialer() }
                             )
                         }
                     }
@@ -140,8 +157,10 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun placeCall(phoneNumber: String) {
+        val normalizedNumber = phoneNumber.trim()
+        if (normalizedNumber.isEmpty()) return
         val telecomManager = getSystemService(Context.TELECOM_SERVICE) as TelecomManager
-        val uri = Uri.fromParts("tel", phoneNumber, null)
+        val uri = Uri.fromParts("tel", normalizedNumber, null)
         val extras = Bundle().apply {
             putBoolean(TelecomManager.EXTRA_START_CALL_WITH_SPEAKERPHONE, false)
         }
@@ -149,11 +168,26 @@ class MainActivity : ComponentActivity() {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
                 telecomManager.placeCall(uri, extras)
             } else {
-                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CALL_PHONE), 1)
+                pendingCallNumber = normalizedNumber
+                callPermissionLauncher.launch(Manifest.permission.CALL_PHONE)
             }
         } catch (e: Exception) {
             Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        numberFromDialIntent(intent)?.let {
+            dialIntentNumberState.value = it
+            currentScreenState.value = "dialpad"
+        }
+    }
+
+    private fun numberFromDialIntent(intent: Intent?): String? {
+        if (intent?.action != Intent.ACTION_DIAL && intent?.action != Intent.ACTION_VIEW) return null
+        return intent.data?.schemeSpecificPart?.takeIf { it.isNotBlank() }
     }
 
     private fun requestDefaultDialer() {
@@ -166,33 +200,12 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private fun requestShizukuPermission() {
-        if (Shizuku.pingBinder()) {
-            if (Shizuku.checkSelfPermission() == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, "Shizuku permission already granted", Toast.LENGTH_SHORT).show()
-            } else {
-                Shizuku.requestPermission(101)
-            }
-        } else {
-            Toast.makeText(this, "Shizuku is not running", Toast.LENGTH_LONG).show()
-        }
-    }
-
-    private fun scheduleCleanupWorker() {
-        val cleanupRequest = PeriodicWorkRequestBuilder<CleanupWorker>(1, TimeUnit.DAYS)
-            .build()
-        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
-            "CleanupWorker",
-            ExistingPeriodicWorkPolicy.KEEP,
-            cleanupRequest
-        )
-    }
 }
 
 data class NavigationItem(val label: String, val icon: ImageVector, val screen: String)
 
 @Composable
-fun MainScreen(onSetDefaultClick: () -> Unit, onShizukuClick: () -> Unit) {
+fun MainScreen(onSetDefaultClick: () -> Unit) {
     Column(
         modifier = Modifier.fillMaxSize().padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -204,17 +217,18 @@ fun MainScreen(onSetDefaultClick: () -> Unit, onShizukuClick: () -> Unit) {
         OutlinedButton(onClick = onSetDefaultClick, modifier = Modifier.fillMaxWidth().height(56.dp)) {
             Text("Set as Default Dialer")
         }
-        Spacer(modifier = Modifier.height(16.dp))
-        OutlinedButton(onClick = onShizukuClick, modifier = Modifier.fillMaxWidth().height(56.dp)) {
-            Text("Grant Shizuku Permission")
-        }
     }
 }
 
 @Composable
-fun DialpadScreen(contactRepository: ContactRepository, onDial: (String) -> Unit) {
-    var dialedNumber by remember { mutableStateOf("") }
-    val allContacts = remember { contactRepository.getContacts() }
+fun DialpadScreen(
+    contactRepository: ContactRepository,
+    initialNumber: String,
+    hasContactPermission: Boolean,
+    onDial: (String) -> Unit
+) {
+    var dialedNumber by rememberSaveable(initialNumber) { mutableStateOf(initialNumber) }
+    val allContacts = rememberContacts(contactRepository, hasContactPermission)
     
     val matchedContacts = remember(dialedNumber, allContacts) {
         if (dialedNumber.isEmpty()) emptyList()
@@ -237,7 +251,9 @@ fun DialpadScreen(contactRepository: ContactRepository, onDial: (String) -> Unit
                 ) {
                     matchedContacts.forEach { contact ->
                         Column(
-                            modifier = Modifier.weight(1f).clickable { onDial(contact.phoneNumber ?: "") },
+                            modifier = Modifier.weight(1f).clickable {
+                                contact.phoneNumber?.takeIf { it.isNotBlank() }?.let(onDial)
+                            },
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             Surface(modifier = Modifier.size(44.dp), shape = CircleShape, color = MaterialTheme.colorScheme.primaryContainer) {
@@ -319,9 +335,9 @@ fun DialKey(digit: String, letters: String, modifier: Modifier, onClick: () -> U
 }
 
 @Composable
-fun ContactsScreen(repository: ContactRepository) {
+fun ContactsScreen(repository: ContactRepository, hasContactPermission: Boolean, onDial: (String) -> Unit) {
     var searchQuery by remember { mutableStateOf("") }
-    val allContacts = remember { repository.getContacts() }
+    val allContacts = rememberContacts(repository, hasContactPermission)
     val filteredContacts = remember(searchQuery, allContacts) {
         if (searchQuery.isBlank()) allContacts
         else allContacts.filter { it.displayName.contains(searchQuery, ignoreCase = true) || it.phoneNumber?.contains(searchQuery) == true }
@@ -340,7 +356,7 @@ fun ContactsScreen(repository: ContactRepository) {
 
         LazyColumn(modifier = Modifier.fillMaxSize(), contentPadding = PaddingValues(16.dp)) {
             items(filteredContacts) { contact ->
-                ContactItem(contact)
+                ContactItem(contact, onDial)
                 Divider(modifier = Modifier.padding(vertical = 4.dp), thickness = 0.5.dp, color = MaterialTheme.colorScheme.outlineVariant)
             }
         }
@@ -348,11 +364,10 @@ fun ContactsScreen(repository: ContactRepository) {
 }
 
 @Composable
-fun ContactItem(contact: Contact) {
-    val context = androidx.compose.ui.platform.LocalContext.current
+fun ContactItem(contact: Contact, onDial: (String) -> Unit) {
     Row(
         modifier = Modifier.fillMaxWidth().clickable {
-            contact.phoneNumber?.let { val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$it")); context.startActivity(intent) }
+            contact.phoneNumber?.takeIf { it.isNotBlank() }?.let(onDial)
         }.padding(vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -374,24 +389,15 @@ fun ContactItem(contact: Contact) {
 }
 
 @Composable
-fun RecordingsScreen(recordingDao: RecordingDao) {
-    var recordings by remember { mutableStateOf(emptyList<RecordingEntity>()) }
-    LaunchedEffect(Unit) { recordings = recordingDao.getAllRecordings() }
-
-    LazyColumn(modifier = Modifier.fillMaxSize(), contentPadding = PaddingValues(16.dp)) {
-        item { Text("Recent Recordings", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(bottom = 16.dp)) }
-        items(recordings) { recording ->
-            Row(modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
-                Icon(Icons.Default.Mic, null, tint = MaterialTheme.colorScheme.primary)
-                Spacer(modifier = Modifier.width(16.dp))
-                Column {
-                    Text(recording.callId, style = MaterialTheme.typography.bodyLarge)
-                    Text("${recording.duration / 1000}s • ${java.text.DateFormat.getDateTimeInstance().format(recording.createdAt)}", style = MaterialTheme.typography.bodySmall)
-                }
-            }
-            Divider(thickness = 0.5.dp, color = MaterialTheme.colorScheme.outlineVariant)
+private fun rememberContacts(repository: ContactRepository, hasContactPermission: Boolean): List<Contact> {
+    val contacts by produceState(emptyList<Contact>(), repository, hasContactPermission) {
+        value = if (hasContactPermission) {
+            withContext(Dispatchers.IO) { repository.getContacts() }
+        } else {
+            emptyList()
         }
     }
+    return contacts
 }
 
 fun matchT9(name: String, digits: String): Boolean {

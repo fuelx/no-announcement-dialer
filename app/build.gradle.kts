@@ -74,10 +74,6 @@ dependencies {
     // WorkManager
     implementation("androidx.work:work-runtime-ktx:2.9.0")
     
-    // Shizuku
-    implementation("dev.rikka.shizuku:api:13.1.5")
-    implementation("dev.rikka.shizuku:provider:13.1.5")
-
     // Coil for image loading
     implementation("io.coil-kt:coil-compose:2.5.0")
 

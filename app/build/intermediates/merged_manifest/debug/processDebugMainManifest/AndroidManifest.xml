@@ -20,8 +20,8 @@
     <uses-permission android:name="android.permission.MANAGE_OWN_CALLS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <!-- System level permissions (requires Shizuku or system app) -->
-    <uses-permission android:name="android.permission.CAPTURE_AUDIO_OUTPUT" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -32,7 +32,6 @@
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.personal.caller.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-    <uses-permission android:name="moe.shizuku.manager.permission.API_V23" />
 
     <application
         android:allowBackup="false"
@@ -66,6 +65,17 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.personal.caller.telecom.InCallActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:showWhenLocked="true"
+            android:turnScreenOn="true" />
+
+        <receiver
+            android:name="com.personal.caller.telecom.CallActionReceiver"
+            android:exported="false" />
 
         <service
             android:name="com.personal.caller.telecom.PersonalInCallService"
@@ -76,7 +86,7 @@
                 android:value="true" />
             <meta-data
                 android:name="android.telecom.IN_CALL_SERVICE_RINGING"
-                android:value="true" />
+                android:value="false" />
 
             <intent-filter>
                 <action android:name="android.telecom.InCallService" />
@@ -204,10 +214,6 @@
             android:name="androidx.room.MultiInstanceInvalidationService"
             android:directBootAware="true"
             android:exported="false" />
-
-        <meta-data
-            android:name="moe.shizuku.client.V3_SUPPORT"
-            android:value="true" />
 
         <receiver
             android:name="androidx.profileinstaller.ProfileInstallReceiver"
