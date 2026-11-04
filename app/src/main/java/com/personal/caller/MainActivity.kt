@@ -41,6 +41,9 @@ import androidx.work.WorkManager
 import coil.compose.AsyncImage
 import com.personal.caller.data.Contact
 import com.personal.caller.data.ContactRepository
+import com.personal.caller.data.CallKind
+import com.personal.caller.data.CallLogEntry
+import com.personal.caller.data.CallLogRepository
 import com.personal.caller.data.RecordingEntry
 import com.personal.caller.data.RecordingRepository
 import com.personal.caller.ui.theme.PersonalCallerTheme
@@ -61,6 +64,7 @@ class MainActivity : ComponentActivity() {
     }
 
     private var hasContactPermissionState = mutableStateOf(false)
+    private var hasCallLogPermissionState = mutableStateOf(false)
     private var currentScreenState = mutableStateOf("dialpad")
     private var dialIntentNumberState = mutableStateOf("")
     private var pendingCallNumber: String? = null
@@ -86,6 +90,13 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    private val callLogPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        hasCallLogPermissionState.value = isGranted
+        if (isGranted) currentScreenState.value = "calls"
+    }
+
     private val notificationPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { _ -> /* The incoming-call notification is retried when the permission is later granted. */ }
@@ -98,6 +109,10 @@ class MainActivity : ComponentActivity() {
             this,
             Manifest.permission.READ_CONTACTS
         ) == PackageManager.PERMISSION_GRANTED
+        hasCallLogPermissionState.value = ContextCompat.checkSelfPermission(
+            this,
+            Manifest.permission.READ_CALL_LOG
+        ) == PackageManager.PERMISSION_GRANTED
         dialIntentNumberState.value = numberFromDialIntent(intent).orEmpty()
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU &&
             ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
@@ -106,12 +121,14 @@ class MainActivity : ComponentActivity() {
         }
         
         val contactRepository = ContactRepository(this)
+        val callLogRepository = CallLogRepository(this)
         val recordingRepository = RecordingRepository(this)
         
         setContent {
             PersonalCallerTheme {
                 var currentScreen by currentScreenState
                 val hasContactPermission by hasContactPermissionState
+                val hasCallLogPermission by hasCallLogPermissionState
 
                 Scaffold(
                     bottomBar = {
@@ -121,6 +138,7 @@ class MainActivity : ComponentActivity() {
                         ) {
                             val items = listOf(
                                 NavigationItem("Dialpad", Icons.Default.Dialpad, "dialpad"),
+                                NavigationItem("Calls", Icons.Default.History, "calls"),
                                 NavigationItem("Contacts", Icons.Default.Person, "contacts"),
                                 NavigationItem("Recordings", Icons.Default.Mic, "recordings"),
                                 NavigationItem("Settings", Icons.Default.Settings, "main")
@@ -131,10 +149,12 @@ class MainActivity : ComponentActivity() {
                                     label = { Text(item.label, style = MaterialTheme.typography.labelSmall) },
                                     selected = currentScreen == item.screen,
                                     onClick = {
-                                        if (item.screen == "contacts" && !hasContactPermission) {
-                                            contactPermissionLauncher.launch(Manifest.permission.READ_CONTACTS)
-                                        } else {
-                                            currentScreen = item.screen
+                                        when {
+                                            item.screen == "contacts" && !hasContactPermission ->
+                                                contactPermissionLauncher.launch(Manifest.permission.READ_CONTACTS)
+                                            item.screen == "calls" && !hasCallLogPermission ->
+                                                callLogPermissionLauncher.launch(Manifest.permission.READ_CALL_LOG)
+                                            else -> currentScreen = item.screen
                                         }
                                     }
                                 )
@@ -151,6 +171,11 @@ class MainActivity : ComponentActivity() {
                                 contactRepository = contactRepository,
                                 initialNumber = dialIntentNumberState.value,
                                 hasContactPermission = hasContactPermission,
+                                onDial = { number -> placeCall(number) }
+                            )
+                            "calls" -> CallLogsScreen(
+                                repository = callLogRepository,
+                                hasCallLogPermission = hasCallLogPermission,
                                 onDial = { number -> placeCall(number) }
                             )
                             "contacts" -> ContactsScreen(
@@ -422,6 +447,99 @@ fun ContactItem(contact: Contact, onDial: (String) -> Unit) {
             contact.phoneNumber?.let { Text(it, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant) }
         }
     }
+}
+
+@Composable
+fun CallLogsScreen(
+    repository: CallLogRepository,
+    hasCallLogPermission: Boolean,
+    onDial: (String) -> Unit
+) {
+    val calls by produceState(emptyList<CallLogEntry>(), repository, hasCallLogPermission) {
+        value = if (hasCallLogPermission) {
+            withContext(Dispatchers.IO) { repository.getRecentCalls() }
+        } else {
+            emptyList()
+        }
+    }
+
+    if (!hasCallLogPermission) {
+        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Text("Allow Call Log access to see missed, incoming, and outgoing calls.")
+        }
+        return
+    }
+
+    LazyColumn(modifier = Modifier.fillMaxSize(), contentPadding = PaddingValues(16.dp)) {
+        item {
+            Text("Recent calls", style = MaterialTheme.typography.titleLarge, modifier = Modifier.padding(bottom = 12.dp))
+        }
+        if (calls.isEmpty()) {
+            item { Text("No recent calls.", style = MaterialTheme.typography.bodyLarge) }
+        } else {
+            items(calls, key = { it.id }) { call ->
+                CallLogItem(call, onDial)
+                Divider(thickness = 0.5.dp, color = MaterialTheme.colorScheme.outlineVariant)
+            }
+        }
+    }
+}
+
+@Composable
+private fun CallLogItem(call: CallLogEntry, onDial: (String) -> Unit) {
+    val typeLabel = when (call.kind) {
+        CallKind.INCOMING -> "Incoming"
+        CallKind.OUTGOING -> "Outgoing"
+        CallKind.MISSED -> "Missed"
+        CallKind.OTHER -> "Call"
+    }
+    val typeIcon = when (call.kind) {
+        CallKind.INCOMING -> Icons.Default.CallReceived
+        CallKind.OUTGOING -> Icons.Default.CallMade
+        CallKind.MISSED -> Icons.Default.CallMissed
+        CallKind.OTHER -> Icons.Default.Call
+    }
+    val title = call.displayName ?: call.phoneNumber ?: "Private number"
+    val subtitle = buildString {
+        append(typeLabel)
+        append(" • ")
+        append(java.text.DateFormat.getDateTimeInstance(java.text.DateFormat.SHORT, java.text.DateFormat.SHORT).format(call.timestamp))
+        if (call.durationSeconds > 0) {
+            append(" • ")
+            append(formatCallDuration(call.durationSeconds))
+        }
+    }
+
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(enabled = !call.phoneNumber.isNullOrBlank()) { call.phoneNumber?.let(onDial) }
+            .padding(vertical = 12.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Icon(
+            typeIcon,
+            contentDescription = typeLabel,
+            tint = if (call.kind == CallKind.MISSED) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary
+        )
+        Spacer(Modifier.width(16.dp))
+        Column(Modifier.weight(1f)) {
+            Text(title, style = MaterialTheme.typography.bodyLarge)
+            if (call.displayName != null && !call.phoneNumber.isNullOrBlank()) {
+                Text(call.phoneNumber, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            }
+            Text(subtitle, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        }
+        if (!call.phoneNumber.isNullOrBlank()) {
+            Icon(Icons.Default.Call, contentDescription = "Call $title", tint = MaterialTheme.colorScheme.primary)
+        }
+    }
+}
+
+private fun formatCallDuration(totalSeconds: Long): String {
+    val minutes = totalSeconds / 60
+    val seconds = totalSeconds % 60
+    return "%d:%02d".format(minutes, seconds)
 }
 
 @Composable
