@@ -5,6 +5,7 @@ import androidx.core.content.ContextCompat
 import android.Manifest
 import android.content.pm.PackageManager
 import android.provider.ContactsContract
+import android.net.Uri
 
 class ContactRepository(private val context: Context) {
 
@@ -48,5 +49,32 @@ class ContactRepository(private val context: Context) {
         }
         // Contacts can legitimately have several phone numbers; keep each number visible.
         return contacts.distinctBy { it.id to it.phoneNumber }
+    }
+
+    /** Returns a local contact name for an incoming/outgoing telephone number, if one exists. */
+    fun findDisplayName(phoneNumber: String): String? {
+        if (phoneNumber.isBlank() ||
+            ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED
+        ) {
+            return null
+        }
+
+        return try {
+            val lookupUri = Uri.withAppendedPath(
+                ContactsContract.PhoneLookup.CONTENT_FILTER_URI,
+                Uri.encode(phoneNumber)
+            )
+            context.contentResolver.query(
+                lookupUri,
+                arrayOf(ContactsContract.PhoneLookup.DISPLAY_NAME),
+                null,
+                null,
+                null
+            )?.use { cursor ->
+                if (cursor.moveToFirst()) cursor.getString(0)?.takeIf { it.isNotBlank() } else null
+            }
+        } catch (_: SecurityException) {
+            null
+        }
     }
 }

@@ -12,6 +12,12 @@ import android.telecom.CallAudioState
 import android.telecom.InCallService
 import android.util.Log
 import com.personal.caller.MainActivity
+import com.personal.caller.data.ContactRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
 import java.util.concurrent.ConcurrentHashMap
 
 /**
@@ -25,6 +31,8 @@ class PersonalInCallService : InCallService() {
         getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
     }
     private val notificationCallbacks = ConcurrentHashMap<Call, Call.Callback>()
+    private val contactRepository by lazy { ContactRepository(applicationContext) }
+    private val serviceScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
     override fun onCreate() {
         super.onCreate()
@@ -57,6 +65,7 @@ class PersonalInCallService : InCallService() {
         }
         notificationCallbacks[call] = callback
         call.registerCallback(callback)
+        resolveContactName(id, call.details.handle?.schemeSpecificPart)
         showCallNotification(id)
         Log.i(TAG, "Call added: $id")
     }
@@ -83,6 +92,7 @@ class PersonalInCallService : InCallService() {
             runCatching { call.unregisterCallback(callback) }
         }
         notificationCallbacks.clear()
+        serviceScope.cancel()
         CallController.detach(this)
         super.onDestroy()
     }
@@ -110,8 +120,13 @@ class PersonalInCallService : InCallService() {
         )
         val builder = Notification.Builder(this, CHANNEL_ID)
             .setSmallIcon(android.R.drawable.sym_action_call)
-            .setContentTitle(call.number)
-            .setContentText(if (call.isRinging) "Incoming call" else if (call.isOngoing) "In call" else "Calling…")
+            .setContentTitle(call.displayName ?: call.number)
+            .setContentText(
+                if (call.displayName != null) call.number
+                else if (call.isRinging) "Incoming call"
+                else if (call.isOngoing) "In call"
+                else "Calling…"
+            )
             .setCategory(Notification.CATEGORY_CALL)
             .setVisibility(Notification.VISIBILITY_PUBLIC)
             .setContentIntent(contentIntent)
@@ -151,6 +166,14 @@ class PersonalInCallService : InCallService() {
     }
 
     private fun notificationId(id: String): Int = id.hashCode() and 0x7fffffff
+
+    private fun resolveContactName(id: String, phoneNumber: String?) {
+        if (phoneNumber.isNullOrBlank()) return
+        serviceScope.launch {
+            CallController.updateDisplayName(id, contactRepository.findDisplayName(phoneNumber))
+            showCallNotification(id)
+        }
+    }
 
     companion object {
         private const val TAG = "PersonalInCallService"

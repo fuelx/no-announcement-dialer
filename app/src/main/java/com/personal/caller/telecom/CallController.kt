@@ -17,6 +17,7 @@ object CallController {
     data class CallUiState(
         val id: String,
         val number: String,
+        val displayName: String? = null,
         val state: Int,
         val isIncoming: Boolean
     ) {
@@ -33,6 +34,7 @@ object CallController {
     private data class ManagedCall(val call: Call, val callback: Call.Callback)
 
     private val managedCalls = ConcurrentHashMap<String, ManagedCall>()
+    private val displayNames = ConcurrentHashMap<String, String>()
     private val _calls = MutableStateFlow<List<CallUiState>>(emptyList())
     val calls: StateFlow<List<CallUiState>> = _calls.asStateFlow()
     private val _audio = MutableStateFlow(AudioUiState())
@@ -71,6 +73,7 @@ object CallController {
 
     fun remove(call: Call) {
         val id = callId(call)
+        displayNames.remove(id)
         managedCalls.remove(id)?.let { managed ->
             runCatching { managed.call.unregisterCallback(managed.callback) }
         }
@@ -87,6 +90,15 @@ object CallController {
 
     fun disconnect(id: String) {
         managedCalls[id]?.call?.disconnect()
+    }
+
+    fun updateDisplayName(id: String, displayName: String?) {
+        if (displayName.isNullOrBlank()) {
+            displayNames.remove(id)
+        } else {
+            displayNames[id] = displayName
+        }
+        publish()
     }
 
     fun updateAudioState(audioState: CallAudioState) {
@@ -119,6 +131,7 @@ object CallController {
             CallUiState(
                 id = id,
                 number = details.handle?.schemeSpecificPart ?: "Unknown number",
+                displayName = displayNames[id],
                 state = managed.call.state,
                 isIncoming = details.callDirection == Call.Details.DIRECTION_INCOMING
             )

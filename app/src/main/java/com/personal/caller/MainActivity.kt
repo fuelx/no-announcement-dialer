@@ -9,6 +9,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.telecom.TelecomManager
 import android.widget.Toast
+import android.media.MediaPlayer
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
@@ -34,12 +35,20 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
 import coil.compose.AsyncImage
 import com.personal.caller.data.Contact
 import com.personal.caller.data.ContactRepository
+import com.personal.caller.data.RecordingEntry
+import com.personal.caller.data.RecordingRepository
 import com.personal.caller.ui.theme.PersonalCallerTheme
+import com.personal.caller.worker.RecordingCleanupWorker
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.concurrent.TimeUnit
 
 class MainActivity : ComponentActivity() {
 
@@ -83,6 +92,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        scheduleRecordingCleanup()
         
         hasContactPermissionState.value = ContextCompat.checkSelfPermission(
             this,
@@ -96,6 +106,7 @@ class MainActivity : ComponentActivity() {
         }
         
         val contactRepository = ContactRepository(this)
+        val recordingRepository = RecordingRepository(this)
         
         setContent {
             PersonalCallerTheme {
@@ -111,6 +122,7 @@ class MainActivity : ComponentActivity() {
                             val items = listOf(
                                 NavigationItem("Dialpad", Icons.Default.Dialpad, "dialpad"),
                                 NavigationItem("Contacts", Icons.Default.Person, "contacts"),
+                                NavigationItem("Recordings", Icons.Default.Mic, "recordings"),
                                 NavigationItem("Settings", Icons.Default.Settings, "main")
                             )
                             items.forEach { item ->
@@ -146,8 +158,13 @@ class MainActivity : ComponentActivity() {
                                 hasContactPermission = hasContactPermission,
                                 onDial = { number -> placeCall(number) }
                             )
+                            "recordings" -> RecordingsScreen(recordingRepository)
                             "main" -> MainScreen(
-                                onSetDefaultClick = { requestDefaultDialer() }
+                                hasContactPermission = hasContactPermission,
+                                onSetDefaultClick = { requestDefaultDialer() },
+                                onGrantContactsClick = {
+                                    contactPermissionLauncher.launch(Manifest.permission.READ_CONTACTS)
+                                }
                             )
                         }
                     }
@@ -200,12 +217,25 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    private fun scheduleRecordingCleanup() {
+        val cleanupRequest = PeriodicWorkRequestBuilder<RecordingCleanupWorker>(1, TimeUnit.DAYS).build()
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+            "recording-retention-cleanup",
+            ExistingPeriodicWorkPolicy.KEEP,
+            cleanupRequest
+        )
+    }
+
 }
 
 data class NavigationItem(val label: String, val icon: ImageVector, val screen: String)
 
 @Composable
-fun MainScreen(onSetDefaultClick: () -> Unit) {
+fun MainScreen(
+    hasContactPermission: Boolean,
+    onSetDefaultClick: () -> Unit,
+    onGrantContactsClick: () -> Unit
+) {
     Column(
         modifier = Modifier.fillMaxSize().padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -216,6 +246,12 @@ fun MainScreen(onSetDefaultClick: () -> Unit) {
         
         OutlinedButton(onClick = onSetDefaultClick, modifier = Modifier.fillMaxWidth().height(56.dp)) {
             Text("Set as Default Dialer")
+        }
+        if (!hasContactPermission) {
+            Spacer(modifier = Modifier.height(16.dp))
+            OutlinedButton(onClick = onGrantContactsClick, modifier = Modifier.fillMaxWidth().height(56.dp)) {
+                Text("Allow Contacts Access")
+            }
         }
     }
 }
@@ -398,6 +434,100 @@ private fun rememberContacts(repository: ContactRepository, hasContactPermission
         }
     }
     return contacts
+}
+
+@Composable
+fun RecordingsScreen(repository: RecordingRepository) {
+    var recordings by remember { mutableStateOf(emptyList<RecordingEntry>()) }
+    var playingPath by remember { mutableStateOf<String?>(null) }
+    val player = remember { MediaPlayer() }
+    val scope = rememberCoroutineScope()
+
+    fun reload() {
+        scope.launch {
+            recordings = withContext(Dispatchers.IO) {
+                repository.deleteExpired()
+                repository.list()
+            }
+        }
+    }
+
+    LaunchedEffect(repository) { reload() }
+    DisposableEffect(player) {
+        player.setOnCompletionListener { playingPath = null }
+        onDispose {
+            player.reset()
+            player.release()
+        }
+    }
+
+    LazyColumn(modifier = Modifier.fillMaxSize(), contentPadding = PaddingValues(16.dp)) {
+        item {
+            Text("Call recordings", style = MaterialTheme.typography.titleLarge)
+            Text(
+                "Files are kept for 90 days and then removed automatically.",
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 4.dp, bottom = 16.dp)
+            )
+        }
+        if (recordings.isEmpty()) {
+            item {
+                Text(
+                    "No recordings found on this phone.",
+                    style = MaterialTheme.typography.bodyLarge,
+                    modifier = Modifier.padding(top = 24.dp)
+                )
+            }
+        } else {
+            items(recordings, key = { it.file.absolutePath }) { recording ->
+                val isPlaying = playingPath == recording.file.absolutePath
+                Column(modifier = Modifier.fillMaxWidth().padding(vertical = 12.dp)) {
+                    Text(
+                        java.text.DateFormat.getDateTimeInstance().format(recording.createdAt),
+                        style = MaterialTheme.typography.titleMedium
+                    )
+                    Text(
+                        "${recording.sizeBytes / 1024} KB",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Row(
+                        modifier = Modifier.padding(top = 8.dp),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        Button(onClick = {
+                            if (isPlaying) {
+                                player.reset()
+                                playingPath = null
+                            } else {
+                                runCatching {
+                                    player.reset()
+                                    player.setOnPreparedListener { it.start() }
+                                    player.setDataSource(recording.file.absolutePath)
+                                    player.prepareAsync()
+                                    playingPath = recording.file.absolutePath
+                                }.onFailure { playingPath = null }
+                            }
+                        }) {
+                            Text(if (isPlaying) "Stop" else "Play")
+                        }
+                        TextButton(onClick = {
+                            if (isPlaying) {
+                                player.reset()
+                                playingPath = null
+                            }
+                            scope.launch {
+                                withContext(Dispatchers.IO) { repository.delete(recording) }
+                                reload()
+                            }
+                        }) { Text("Delete") }
+                    }
+                }
+                Divider(thickness = 0.5.dp, color = MaterialTheme.colorScheme.outlineVariant)
+            }
+        }
+    }
 }
 
 fun matchT9(name: String, digits: String): Boolean {

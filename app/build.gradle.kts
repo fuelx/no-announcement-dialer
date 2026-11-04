@@ -64,6 +64,8 @@ dependencies {
     // Lifecycle components
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
 
+    implementation("androidx.work:work-runtime-ktx:2.9.0")
+
     // Coil for image loading
     implementation("io.coil-kt:coil-compose:2.5.0")
 

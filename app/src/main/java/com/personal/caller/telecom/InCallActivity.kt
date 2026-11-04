@@ -74,7 +74,11 @@ private fun InCallScreen(call: CallController.CallUiState, audio: CallController
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(call.number, fontSize = 30.sp, fontWeight = FontWeight.SemiBold, textAlign = TextAlign.Center)
+        Text(call.displayName ?: call.number, fontSize = 30.sp, fontWeight = FontWeight.SemiBold, textAlign = TextAlign.Center)
+        if (call.displayName != null) {
+            Spacer(Modifier.height(6.dp))
+            Text(call.number, style = MaterialTheme.typography.bodyLarge)
+        }
         Spacer(Modifier.height(12.dp))
         Text(stateText, style = MaterialTheme.typography.titleMedium)
         Spacer(Modifier.height(56.dp))
